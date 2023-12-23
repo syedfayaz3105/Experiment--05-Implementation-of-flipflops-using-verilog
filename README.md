@@ -111,11 +111,13 @@ Q(t+1)=T′Q(t)+TQ(t)′
 5.For different input combination,generate the timing diagram
 ```
 ### PROGRAM 
+```
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
 Developed by: Farhana H
 RegisterNumber: 23012987 
 */
+```
 ## Code
 ## SR FLIP FLOP
 ![image](https://github.com/syedfayaz3105/Experiment--05-Implementation-of-flipflops-using-verilog/assets/147144126/c57f385b-6f06-4807-853e-b66590e3cb71)
