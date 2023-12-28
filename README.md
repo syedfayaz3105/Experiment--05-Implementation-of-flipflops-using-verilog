@@ -1,3 +1,5 @@
+## Developed by: Farhana H
+## Register number:212223230057
 # Experiment--05-Implementation-of-flipflops-using-verilog
 ### AIM:
 To implement all the flipflops using verilog and validating their functionality using their functional tables
@@ -104,30 +106,62 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 ### Procedure
 ```
-1.Type the program in Quartus software
-2.Compile and run the program
-3.Generate the RTL schematic and save the logic diagram
-4.Create nodes for inputs and outputs to generate the timing diagram
-5.For different input combination,generate the timing diagram
+1.Using nand gates and wires construct sr flip flop.
+2.Repeat same steps to construct JK,D,T flipflops.
+3.Find Rtl logic and timing diagram for all flipflops.
+4.end the program
 ```
 ### PROGRAM 
+## SR Flip Flop
 ```
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: Farhana H
-RegisterNumber: 23012987 
-*/
+module SR_flipflop(S,R,clk,Q,Qbar);
+input S,R,clk;
+output Q,Qbar;
+wire X,Y;
+nand (X,S,clk);
+nand (Y,R,clk);
+nand (Q,X,Qbar);
+nand (Qbar,Y,Q);
+endmodule
 ```
-## Code
-## SR FLIP FLOP
-![image](https://github.com/syedfayaz3105/Experiment--05-Implementation-of-flipflops-using-verilog/assets/147144126/c57f385b-6f06-4807-853e-b66590e3cb71)
-## D FLIP FLOP
-![image](https://github.com/syedfayaz3105/Experiment--05-Implementation-of-flipflops-using-verilog/assets/147144126/0a4c7b67-efd9-448c-bad8-276cb57b582c)
-## JK FLIP FLOP
-![image](https://github.com/syedfayaz3105/Experiment--05-Implementation-of-flipflops-using-verilog/assets/147144126/b72f8490-43e2-4f7f-8833-0f7638cb34d2)
-## T FLIP FLOP
-![image](https://github.com/syedfayaz3105/Experiment--05-Implementation-of-flipflops-using-verilog/assets/147144126/b1f1f6a9-100c-49dd-b4ae-2eb617b5aaa3)
-## Truth table:
+## D Flip Flop
+```
+module D_flipflop(D,clk,Q,Qbar);
+input D,clk;
+output Q,Qbar;
+assign Dbar=~D;
+wire X,Y;
+nand (X,D,clk);
+nand (Y,Dbar,clk);
+nand (Q,X,Qbar);
+nand (Qbar,Y,Q);
+endmodule
+```
+## JK Flip Flop
+```
+module JK_flipflop(J,K,clk,Q,Qbar);
+input J,K,clk;
+output Q,Qbar;
+wire X,Y;
+nand (X,J,clk,Qbar);
+nand (Y,K,clk,Q);
+nand (Q,X,Qbar);
+nand (Qbar,Y,Q);
+endmodule
+```
+## T Flip Flop
+```
+module T_flipflopo(T,clk,Q,Qbar);
+input T,clk;
+output Q,Qbar;
+wire S,R;
+nand (S,T,clk,Qbar);
+nand (R,T,clk,Q);
+nand (Q,S,Qbar);
+nand (Qbar,R,Q);
+endmodule
+```
+## Truth table
 ## SR FLIP FLOP
 ![image](https://github.com/syedfayaz3105/Experiment--05-Implementation-of-flipflops-using-verilog/assets/147144126/7553d9a4-2953-4f13-ba06-1640d1b0cd5c)
 ## D FLIP FLOP
